@@ -10,7 +10,7 @@ let fileStorage = new f.FlatFileSystem();
 let website = new ex.ReactApp(
   projectPath: "./../client",
   localPort: 4002,
-  useBuildCommand: true
+  useBuildCommand: false
 );
   
 let api = new cloud.Api(
