@@ -18,7 +18,7 @@ website.addEnvironment("apiUrl", api.url);
 api.get("", inflight (req) => {
   return {
     status: 200,
-    body: "Hello Wing!"
+    body: "Hello Wing.Cloud!"
   };
 });
 
