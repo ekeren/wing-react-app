@@ -1,26 +1,22 @@
-import logo from './logo.svg';
-import { useEffect, useState } from "react";
-import './App.css';
+import React from "react";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Header} from "./header";
+import {InFolderView} from "./folder-inner-view";
+import {RootView} from "./root-view";
+import "semantic-ui-css/semantic.min.css";
 
-function App() {
-  const [title, setTitle] = useState("Default Value");
-  const getTitle = async () => {
-    const response = await fetch(`${window.wingEnv.apiUrl}/title`);
-    setTitle(await response.text());  
-  }
-  
-  useEffect(() => {
-    getTitle();
-  }, []);
-  
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {title}
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <div>
+        <Routes>
+          <Route path="/:folder" element={<InFolderView />} />
+          <Route path="/" element={<RootView />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
