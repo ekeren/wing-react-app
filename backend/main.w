@@ -1,6 +1,9 @@
 bring ex;
 bring cloud;
 bring "./flat-file-system.w" as f;
+bring util;
+
+let target = util.env("WING_TARGET");
 
 let fileStorage = new f.FlatFileSystem();
 
@@ -19,7 +22,7 @@ website.addEnvironment("apiUrl", api.url);
 api.get("", inflight (req) => {
   return {
     status: 200,
-    body: "Hello Wing.Cloud!"
+    body: "Hello Wing.Cloud! running on {target}"
   };
 });
 
