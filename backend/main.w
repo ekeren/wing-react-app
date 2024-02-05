@@ -33,7 +33,7 @@ api.post("/api/folders", inflight (req) => {
   }
   return {
       status: 500,
-      body: "missing body"
+      body: "Missing Body"
     };
 });
 
